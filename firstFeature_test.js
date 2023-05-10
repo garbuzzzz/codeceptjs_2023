@@ -8,4 +8,5 @@ Scenario('test something',  ({ I }) => {
 	console.log('process.env.HEADLESS: ', process.env.HEADLESS)
 	I.click('#delete-record-1')
 	// pause()
+	// added comment for git
 });
