@@ -1,0 +1,32 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"prettier",
+		"plugin:codeceptjs/recommended"
+	],
+	"overrides": [],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": {
+		"codeceptjs/no-actor-in-scenario": 2,
+		"no-skipped-tests": ["error", "always"],
+		"no-exclusive-tests": ["warn", "always"],
+		"no-pause-in-scenario": ["warn", "always"],
+		"semi": ["warn", "never"],
+		"quotes": [2, "single"],
+		"indent": ["warn", "tab"],
+		"object-curly-spacing": ["warn", "always"],
+		"no-console": "warn",
+		"no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 0 }],
+		"no-trailing-spaces": ["warn", { "skipBlankLines": true }],
+		"newline-per-chained-call": [
+			"warn",
+			{
+				"ignoreChainWithDepth": 2
+			}
+		],
+		"no-undef": "off"
+	}
+}
