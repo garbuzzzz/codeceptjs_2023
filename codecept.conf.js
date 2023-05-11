@@ -66,6 +66,26 @@ exports.config = {
 		},
 		tryTo: {
 			enabled: true
+		},
+		subtitles: { // Automatically captures steps as subtitle, and saves it as an artifact when a video is found for a failed test
+			enabled: true
+		},
+		stepTimeout: { // not sure how it works
+			enabled: true,
+			overrideStepLimits: false, // default is false
+			noTimeoutSteps: [
+				'scroll*', // ignore all scroll steps
+				/Cookie/, // ignore all steps with a Cookie in it (by regexp)
+			],
+			customTimeoutSteps: [
+				['myFlakyStep*', 1],
+				['scrollWhichRequiresTimeout', 5],
+			]
+		},
+		stepByStepReport: { // see more options in docs
+			deleteSuccessful: false,
+			enabled: true, // will put in output folder a separate folder for each test case with the screenshots
+			screenshotsForAllureReport: true, // works!
 		}
 	},
 	multiple: {

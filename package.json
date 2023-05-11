@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 			"prepare": "rm -r -f output/* && rm -r -f allure-results/*",
-			"test": "codeceptjs run --steps --reporter mocha-multi",
+			"test": "npm run prepare && codeceptjs run --steps --reporter mocha-multi --plugins allure",
 			"codeceptjs": "codeceptjs run --steps",
 			"codeceptjs:headless": "HEADLESS=true npx codeceptjs run --steps",
 			"codeceptjs:ui": "npx codecept-ui --app",
@@ -15,7 +15,7 @@
 			"codeceptjs:dry-run": "npx codeceptjs dry-run",
 			"codeceptjs:allure": "npx codeceptjs run --plugins allure",
 			"allure:serve": "npx allure serve",
-			"codeceptjs:pause": "codeceptjs run --steps -p pauseOnFail",
+			"codeceptjs:pauseOnFail": "codeceptjs run --steps -p pauseOnFail",
 			"multiple:threebrowsers": "npm run prepare && npx codeceptjs run-multiple --steps threebrowsers --plugins allure",
 			"parallel:chromeonly": "npm run prepare && npx codeceptjs run-multiple --steps chromeonly --plugins allure --reporter mocha-multi",
 			"parallel:firefoxonly": "npm run prepare && npx codeceptjs run-multiple --steps firefoxonly --plugins allure"
