@@ -11,11 +11,15 @@ exports.config = {
 	tests: './tests/*_test.js',
 	output: './output',
 	helpers: {
-		REST: {},
+		REST: {
+			endpoint: 'https://simple-books-api.glitch.me/books'
+		},
 		FileSystem: {},
 		Playwright: {
 			url: 'https://demoqa.com',
-			show: true,
+			show: false,
+			video: true,
+			trace: true,
 			browser: 'chromium',
 			chromium: {
 				args: [
