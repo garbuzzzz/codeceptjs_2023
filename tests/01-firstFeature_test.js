@@ -10,5 +10,6 @@ Scenario('test something', async ({ I }) => {
 	I.click({ xpath: '//span[text()=\'Web Tables\']' })
 	console.log('process.env.HEADLESS: ', process.env.HEADLESS)
 	I.click('#delete-record-1')
+	I.logPlaywrightObject()
 	// pause()
 })

@@ -10,16 +10,23 @@ setCommonPlugins()
 exports.config = {
 	tests: './tests/*_test.js',
 	output: './output',
+	keepVideoForPassedTests: true,
 	helpers: {
+		Mock: {
+			require: './mock_helper.js',
+		},
 		REST: {},
 		JSONResponse: {},
-			// requestHelper: 'Playwright',
+		// requestHelper: 'Playwright',
 		// },
 		FileSystem: {},
 		Playwright: {
 			url: 'https://demoqa.com',
-			show: false,
+			show: true,
 			video: true,
+			keepVideoForPassedTests: true,
+			keepTraceForPassedTests: true,
+			fullPageScreenshots: true, // make full page screenshots on //# failure.
 			trace: true,
 			browser: 'chromium',
 			chromium: {
