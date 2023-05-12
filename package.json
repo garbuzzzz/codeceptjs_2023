@@ -6,6 +6,7 @@
 	"scripts": {
 		"prepare": "rm -r -f output/* && rm -r -f allure-results/*",
 		"test:docker": "codeceptjs run --reporter mocha-multi --plugins allure",
+		"docker:run": "rm -r -f dockerReports/* && docker-compose up",
 		"test": "npm run prepare && codeceptjs run --steps --reporter mocha-multi --plugins allure",
 		"codeceptjs": "codeceptjs run --steps",
 		"codeceptjs:headless": "HEADLESS=true npx codeceptjs run --steps",
@@ -21,8 +22,7 @@
 		"parallel:chromeonly": "npm run prepare && npx codeceptjs run-multiple --steps chromeonly --plugins allure --reporter mocha-multi",
 		"parallel:firefoxonly": "npm run prepare && npx codeceptjs run-multiple --steps firefoxonly --plugins allure",
 		"lint": "eslint . --fix --max-warnings=0",
-		"format": "prettier . --write",
-		"playwrightfix": "npx playwright install-deps"
+		"format": "prettier . --write"
 	},
 	"author": "",
 	"license": "ISC",

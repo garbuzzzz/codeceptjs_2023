@@ -1,4 +1,4 @@
-Feature('firstFeature')
+xFeature('firstFeature')
 
 Scenario('test something', async ({ I }) => {
 	I.amOnPage('/')
