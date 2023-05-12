@@ -76,3 +76,19 @@ Scenario('I.usePlaywrightTo can also use Playwright code inside, but its not moc
 	I.seeResponseContainsJson({ 'id':1,'name':'The Russian','type':'fiction','available':true })
 	I.seeResponseCodeIsSuccessful()
 })
+
+Scenario('mocking: POST - doesnt work for I.sendPostRequest',async ({ I }) => {
+	I.mockRoute('https://simple-books-api.glitch.me/orders', route => {
+		const json = {
+			message: { 'test_breed': [] }
+		}
+		route.fulfill({ json })
+	})
+	const response = await I.sendPostRequest('https://simple-books-api.glitch.me/orders',
+		{
+			'bookId': 1,
+			'customerName': 'Pavel'
+		}
+	)
+	console.log('response: ', response.data)
+})
