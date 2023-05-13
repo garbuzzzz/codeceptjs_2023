@@ -92,3 +92,21 @@ Scenario('mocking: POST - doesnt work for I.sendPostRequest',async ({ I }) => {
 	)
 	console.log('response: ', response.data)
 })
+
+Scenario('DOESNT WORK: I.usePlaywrightTo mock POST request',async ({ I }) => {
+	//# I have no idea how to make it work...
+	I.usePlaywrightTo('mock POST response', async ({ page }) => {
+		await page.route('https://simple-books-api.glitch.me/orders', async (route) => {
+			const json = {
+				message: { 'test_breed': [] }
+			}
+			await route.fulfill({ json })
+		})
+		//# couldn't make request object be available..
+		await request.post('https://simple-books-api.glitch.me/orders',
+			{
+				'bookId': 1,
+				'customerName': 'Pavel'
+			})
+	})
+})
