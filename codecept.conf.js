@@ -15,10 +15,11 @@ exports.config = {
 		Mock: {
 			require: './mock_helper.js',
 		},
-		REST: {},
-		JSONResponse: {},
-		// requestHelper: 'Playwright',
-		// },
+		//! we don't need it since we work with the Playwright helper below!!
+		// REST: {},
+		JSONResponse: {
+			requestHelper: 'Playwright',
+		},
 		FileSystem: {},
 		Playwright: {
 			url: 'https://demoqa.com',

@@ -16,6 +16,17 @@ class Mock extends Helper {
 		})
 		// await page.goto('https://simple-books-api.glitch.me/books')
 	}
+
+	async mockResponse2(url) {
+		const { page } = this.helpers.Playwright
+		const json = {
+			message: { 'test_breed': [] }
+		}
+		await page.route(url, (route) => {
+			route.fulfill({ json })
+		})
+	}
+
 	// before/after hooks
 	/**
   //  * @protected
