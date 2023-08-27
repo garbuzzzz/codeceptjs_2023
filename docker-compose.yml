@@ -1,0 +1,10 @@
+version: '3'
+services:
+  codeceptjs_mytest:
+    image: myimg
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./dockerReports/allure-results/:/app/allure-results
+      - ./dockerReports/output/:/app/output
