@@ -13,13 +13,13 @@ pipeline {
   // }
 
   agent {
-    // docker {
-    //     image 'vccoredevops/playwright-chrome-edge:0.01'
-    //     // args '-v /var/lib/jenkins/workspace/boost-regression:/cucumber-playwright/reports -p 3000:3000'
-    //     args '-v C:/ProgramData/Jenkins/.jenkins/workspace/docker-sales-crm/:/docker-sales-crm-attempt/reports -p 3000:3000'
+    docker {
+        image 'vccoredevops/playwright-chrome-edge:0.01'
+        args '-v /var/lib/jenkins/workspace/codeceptjs-docker:/codeceptjs_2023/reports -p 3000:3000'
+        // args '-v C:/ProgramData/Jenkins/.jenkins/workspace/docker-sales-crm/:/docker-sales-crm-attempt/reports -p 3000:3000'
 
-    // }
-		dockerfile true
+    }
+		// dockerfile true
   }
 
   stages {

@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"prepare": "rm -r -f output/* && rm -r -f allure-results/*",
-		"test:docker": "codeceptjs run --reporter mocha-multi --plugins allure",
+		"test:docker": "npx codeceptjs run --reporter mocha-multi --plugins allure",
 		"docker:run": "rm -r -f dockerReports/* && docker-compose up",
 		"test": "npm run prepare && codeceptjs run --steps --reporter mocha-multi --plugins allure",
 		"codeceptjs": "codeceptjs run --steps",
