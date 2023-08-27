@@ -1,15 +1,3 @@
-#!groovy
-import groovy.json.JsonSlurper
-
-List flows = [
-    "(@us-emo or @us-ate) and (not @wip or @flaky or @bug)",
-    "@us-emo and (not @wip or @flaky)",
-    "@us-ate and (not @wip or @flaky)",
-    "@us-fad and (not @wip or @flaky)",
-    "@us-hpic and (not @wip or @flaky)",
-    "@gcrm",
-]
-
 pipeline {
   options {
     buildDiscarder(logRotator(daysToKeepStr: '14'))
@@ -21,18 +9,7 @@ pipeline {
   }
 
   // parameters {
-  //   choice(name: "ENVIRONMENT", choices: ["STAGE"], description: "Environment to run tests against")
   //   choice(name: "TAGS", choices: flows, description: "Cucumber expression that describes which tests to run")
-  // }
-
-  // environment {
-  //   NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-  //   MONGOMS_DEBUG=1
-  //   MONGOMS_PREFER_GLOBAL_PATH=false
-  //   MONGOMS_RUNTIME_DOWNLOAD=true
-  //   MONGOMS_PLATFORM="linux"
-  //   MONGOMS_DOWNLOAD_DIR ="${WORKSPACE}/node_modules/.cache/mongodb-memory-server/mongodb-binaries"
-  //   PLAYWRIGHT_BROWSERS_PATH="${WORKSPACE}/browsers"
   // }
 
   agent {
@@ -51,4 +28,5 @@ pipeline {
             echo 'Hello Pavel'
         }
     }
+	}
 }
